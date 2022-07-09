@@ -1,16 +1,17 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "bruh",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "BRUH (Better Random Utilities and Help)",
+  "description": "A Collection of random, configurable tweaks to Minecraft",
   "authors": [
-    "Me!"
+    "OverlordsIII",
+    "Yumatan"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/OverlordsIII/BRUH"
   },
 
   "license": "CC0-1.0",
@@ -19,7 +20,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "io.github.overlordsiii.BRUH"
     ]
   },
   "mixins": [
@@ -31,8 +32,5 @@
     "fabric": "*",
     "minecraft": "~1.19",
     "java": ">=17"
-  },
-  "suggests": {
-    "another-mod": "*"
   }
 }
