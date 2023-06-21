@@ -2,6 +2,7 @@ package io.github.overlordsiii.config;
 
 import io.github.overlordsiii.config.module.BabyMobsModule;
 import io.github.overlordsiii.config.module.ColorfulSheepModule;
+import io.github.overlordsiii.config.module.DeathCoordinatesModule;
 import io.github.overlordsiii.config.module.SafeCactusModule;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
@@ -13,6 +14,7 @@ import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 @Config.Gui.CategoryBackground(category = "babyMobs", background = "minecraft:textures/block/emerald_block.png")
 @Config.Gui.CategoryBackground(category = "safeCactus", background = "minecraft:textures/block/cactus_side.png")
 @Config.Gui.CategoryBackground(category = "colorfulSheep", background = "minecraft:textures/block/pink_wool.png")
+@Config.Gui.CategoryBackground(category = "deathCoordinates", background = "minecraft:textures/block/iron_block.png")
 public class BRUHConfig implements ConfigData {
 
 	@ConfigEntry.Category(value = "babyMobs")
@@ -26,6 +28,10 @@ public class BRUHConfig implements ConfigData {
 	@ConfigEntry.Category(value = "colorfulSheep")
 	@ConfigEntry.Gui.CollapsibleObject
 	public final ColorfulSheepModule colorfulSheepModule = new ColorfulSheepModule();
+
+	@ConfigEntry.Category(value = "deathCoordinates")
+	@ConfigEntry.Gui.CollapsibleObject
+	public final DeathCoordinatesModule deathCoordinatesModule = new DeathCoordinatesModule();
 
 
 }
