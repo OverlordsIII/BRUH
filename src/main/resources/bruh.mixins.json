@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "CactusBlockMixin",
+    "ItemFrameEntityMixin",
     "PassiveEntityMixin",
     "ServerPlayerEntityMixin",
     "SheepEntityMixin"

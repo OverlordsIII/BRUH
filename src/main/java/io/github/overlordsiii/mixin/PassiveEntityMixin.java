@@ -21,7 +21,7 @@ public class PassiveEntityMixin extends PathAwareEntity {
 
 	@Inject(method = "growUp(IZ)V", at = @At("HEAD"), cancellable = true)
 	private void stopGrowingUp(int age, boolean overGrow, CallbackInfo ci) {
-		if (this.hasCustomName() && BRUH.CONFIG.babyMobsModule.stopGrowingUp) {
+		if (this.hasCustomName()) {
 			if (this.getCustomName().getString().toLowerCase(Locale.ROOT).contains("baby")) {
 				ci.cancel();
 			}
