@@ -6,9 +6,12 @@
   "mixins": [
     "CactusBlockMixin",
     "ItemFrameEntityMixin",
+    "MobEntityMixin",
     "PassiveEntityMixin",
+    "PlayerEntityMixin",
     "ServerPlayerEntityMixin",
-    "SheepEntityMixin"
+    "SheepEntityMixin",
+    "WetSpongeBlockMixin"
   ],
   "client": [
   ],

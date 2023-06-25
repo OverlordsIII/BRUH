@@ -3,7 +3,6 @@ package io.github.overlordsiii.config.module;
 import io.github.overlordsiii.api.Module;
 import io.github.overlordsiii.config.DeathCoordinateMessageType;
 import me.shedaniel.autoconfig.ConfigData;
-import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 
