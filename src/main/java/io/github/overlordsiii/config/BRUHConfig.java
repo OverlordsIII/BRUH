@@ -2,6 +2,7 @@ package io.github.overlordsiii.config;
 
 import io.github.overlordsiii.config.module.ColorfulSheepModule;
 import io.github.overlordsiii.config.module.DeathCoordinatesModule;
+import io.github.overlordsiii.config.module.LeapOfFaithModule;
 import io.github.overlordsiii.config.module.SafeCactusModule;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
@@ -12,6 +13,7 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 @Config.Gui.CategoryBackground(category = "safeCactus", background = "minecraft:textures/block/cactus_side.png")
 @Config.Gui.CategoryBackground(category = "colorfulSheep", background = "minecraft:textures/block/pink_wool.png")
 @Config.Gui.CategoryBackground(category = "deathCoordinates", background = "minecraft:textures/block/iron_block.png")
+@Config.Gui.CategoryBackground(category = "leapOfFaith", background = "minecraft:textures/block/hay_block_side.png")
 public class BRUHConfig implements ConfigData {
 
 	@ConfigEntry.Category(value = "safeCactus")
@@ -26,5 +28,7 @@ public class BRUHConfig implements ConfigData {
 	@ConfigEntry.Gui.CollapsibleObject
 	public final DeathCoordinatesModule deathCoordinatesModule = new DeathCoordinatesModule();
 
-
+	@ConfigEntry.Category(value = "leapOfFaith")
+	@ConfigEntry.Gui.CollapsibleObject
+	public final LeapOfFaithModule leapOfFaithModule = new LeapOfFaithModule();
 }
