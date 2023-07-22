@@ -1,5 +1,6 @@
 package io.github.overlordsiii.mixin;
 
+import io.github.overlordsiii.BRUH;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -23,11 +24,13 @@ public abstract class ItemFrameEntityMixin extends AbstractDecorationEntity {
 
 	@Inject(method = "interact", at = @At("HEAD"), cancellable = true)
 	public void addInvisAbility(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
-		ItemStack stack = player.getStackInHand(hand);
-		if (stack.getItem().equals(Items.AMETHYST_SHARD)) {
-			stack.decrement(1);
-			this.setInvisible(true);
-			cir.setReturnValue(ActionResult.SUCCESS);
+		if (BRUH.CONFIG.generalConfig.invisibleFrames) {
+			ItemStack stack = player.getStackInHand(hand);
+			if (stack.getItem().equals(Items.AMETHYST_SHARD)) {
+				stack.decrement(1);
+				this.setInvisible(true);
+				cir.setReturnValue(ActionResult.SUCCESS);
+			}
 		}
 	}
 }

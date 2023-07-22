@@ -12,8 +12,6 @@ public class DeathCoordinatesModule implements Module, ConfigData {
 	@ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
 	public DeathCoordinateMessageType msgType = DeathCoordinateMessageType.WHISPER;
 
-	public boolean enabled = true;
-
 	@Override
 	public String getName() {
 		return "Death Coordinates";

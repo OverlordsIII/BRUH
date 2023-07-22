@@ -7,9 +7,6 @@ import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 
 public class ColorfulSheepModule implements Module, ConfigData {
 
-	@Comment("Allows for all colors of sheep to be available to be chosen when a sheep is spawned")
-	public boolean colorfulSheep = true;
-
 	@ConfigEntry.BoundedDiscrete(min = 0, max = 100)
 	@ConfigEntry.Gui.RequiresRestart
 	public double whiteChance = 6.25;
@@ -24,7 +21,7 @@ public class ColorfulSheepModule implements Module, ConfigData {
 
 	@ConfigEntry.BoundedDiscrete(min = 0, max = 100)
 	@ConfigEntry.Gui.RequiresRestart
-	public double lightBlueChance = 6.25;
+	public double lightblueChance = 6.25;
 
 	@ConfigEntry.BoundedDiscrete(min = 0, max = 100)
 	@ConfigEntry.Gui.RequiresRestart
@@ -44,7 +41,7 @@ public class ColorfulSheepModule implements Module, ConfigData {
 
 	@ConfigEntry.BoundedDiscrete(min = 0, max = 100)
 	@ConfigEntry.Gui.RequiresRestart
-	public double lightGrayChance = 6.25;
+	public double lightgrayChance = 6.25;
 
 	@ConfigEntry.BoundedDiscrete(min = 0, max = 100)
 	@ConfigEntry.Gui.RequiresRestart

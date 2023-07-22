@@ -53,7 +53,7 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
 	@Inject(method = "onDeath", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/PlayerManager;broadcast(Lnet/minecraft/text/Text;Z)V", shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILEXCEPTION)
 	public void onBroadcast(DamageSource damageSource, CallbackInfo ci, boolean bl, Text text, AbstractTeam abstractTeam) throws IOException {
 
-		if (this.getWorld().isClient) {
+		if (this.getWorld().isClient || !BRUH.CONFIG.generalConfig.deathCoordinates) {
 			return;
 		}
 
@@ -67,14 +67,14 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
 		BRUH.DEATH_LOG_CONFIG.entries.add(entry);
 		BRUH.DEATH_LOG_CONFIG.reload();
 
-		if (type == DeathCoordinateMessageType.WHISPER && BRUH.CONFIG.deathCoordinatesModule.enabled) {
+		if (type == DeathCoordinateMessageType.WHISPER) {
 			this.sendMessage(Text.literal("You died in " + getDimension() + " at x = " + this.getBlockPos().getX() + ", y = " + this.getBlockPos().getY() + ", z = " + this.getBlockPos().getZ()));
 		}
 	}
 
 	@ModifyArg(method = "onDeath", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/PlayerManager;broadcast(Lnet/minecraft/text/Text;Z)V"), index = 0)
 	public Text modifyIncomingDeathText(Text message) {
-		if (BRUH.CONFIG.deathCoordinatesModule.msgType == DeathCoordinateMessageType.BROADCAST && BRUH.CONFIG.deathCoordinatesModule.enabled) {
+		if (BRUH.CONFIG.deathCoordinatesModule.msgType == DeathCoordinateMessageType.BROADCAST && BRUH.CONFIG.generalConfig.deathCoordinates) {
 			return message.copy().append(" in " + getDimension() + " at x = " + this.getBlockPos().getX() + ", y = " + this.getBlockPos().getY() + ", z = " + this.getBlockPos().getZ());
 		}
 

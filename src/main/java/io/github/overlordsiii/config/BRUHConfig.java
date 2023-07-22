@@ -14,7 +14,12 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 @Config.Gui.CategoryBackground(category = "colorfulSheep", background = "minecraft:textures/block/pink_wool.png")
 @Config.Gui.CategoryBackground(category = "deathCoordinates", background = "minecraft:textures/block/iron_block.png")
 @Config.Gui.CategoryBackground(category = "leapOfFaith", background = "minecraft:textures/block/hay_block_side.png")
+@Config.Gui.CategoryBackground(category = "general", background = "minecraft:textures/block/emerald_block.png")
 public class BRUHConfig implements ConfigData {
+
+	@ConfigEntry.Category(value = "general")
+	@ConfigEntry.Gui.TransitiveObject
+	public final BRUHGeneralConfig generalConfig = new BRUHGeneralConfig();
 
 	@ConfigEntry.Category(value = "safeCactus")
 	@ConfigEntry.Gui.CollapsibleObject

@@ -1,5 +1,6 @@
 package io.github.overlordsiii;
 
+import io.github.overlordsiii.command.BruhCommand;
 import io.github.overlordsiii.command.DeathLogCommand;
 import io.github.overlordsiii.config.BRUHConfig;
 import io.github.overlordsiii.deathlog.config.JsonConfigHandler;
@@ -36,6 +37,7 @@ public class BRUH implements ModInitializer {
 	public void onInitialize() {
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			DeathLogCommand.register(dispatcher);
+			BruhCommand.register(dispatcher);
 		});
 	}
 }

@@ -1,5 +1,6 @@
 package io.github.overlordsiii.mixin;
 
+import io.github.overlordsiii.BRUH;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -29,7 +30,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
 	@Inject(method = "interact", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;interact(Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/util/Hand;)Lnet/minecraft/util/ActionResult;", shift = At.Shift.AFTER))
 	private void dismountRidersBasedOnSneaking(Entity entity, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
-		if (this.isSneaking()) {
+		if (this.isSneaking() && BRUH.CONFIG.generalConfig.dismountableEntity) {
 			entity.removeAllPassengers();
 		}
 	}

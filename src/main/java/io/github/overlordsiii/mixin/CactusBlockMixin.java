@@ -20,8 +20,8 @@ public class CactusBlockMixin {
 
 	@Inject(method = "onEntityCollision", at = @At("HEAD"), cancellable = true)
 	public void stopEntityDamageForCactus(BlockState state, World world, BlockPos pos, Entity entity, CallbackInfo ci) {
-		if (entity instanceof ItemEntity itemEntity) {
-			if (itemEntity.getStack().getItem().equals(Items.CACTUS) && BRUH.CONFIG.safeCactusModule.safeCactus) {
+		if (entity instanceof ItemEntity itemEntity && BRUH.CONFIG.generalConfig.safeCactus) {
+			if (itemEntity.getStack().getItem().equals(Items.CACTUS)) {
 				ci.cancel();
 			} else if (BRUH.CONFIG.safeCactusModule.safeItems) {
 				ci.cancel();

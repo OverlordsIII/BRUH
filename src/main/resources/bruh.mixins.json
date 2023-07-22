@@ -4,6 +4,8 @@
   "package": "io.github.overlordsiii.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "AbstractGlassBlockMixin",
+    "BlocksMixin",
     "CactusBlockMixin",
     "HayBlockMixin",
     "ItemFrameEntityMixin",
@@ -11,6 +13,7 @@
     "PassiveEntityMixin",
     "PlayerEntityMixin",
     "ServerPlayerEntityMixin",
+    "ShearsItemMixin",
     "SheepEntityMixin",
     "WetSpongeBlockMixin"
   ],

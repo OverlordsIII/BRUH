@@ -22,7 +22,7 @@ public class SheepEntityMixin {
 	//use modify arg instead of overwrite/redirect
 	@ModifyArg(method = "initialize", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/passive/SheepEntity;setColor(Lnet/minecraft/util/DyeColor;)V"), index = 0)
 	public DyeColor modifyColorArgs(DyeColor color) {
-		if (!BRUH.CONFIG.colorfulSheepModule.colorfulSheep) {
+		if (!BRUH.CONFIG.generalConfig.colorfulSheep) {
 			return color;
 		}
 

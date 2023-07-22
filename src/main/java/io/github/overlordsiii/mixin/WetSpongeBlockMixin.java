@@ -1,6 +1,10 @@
 package io.github.overlordsiii.mixin;
 
+import io.github.overlordsiii.BRUH;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -24,17 +28,22 @@ public abstract class WetSpongeBlockMixin extends Block {
 		super(settings);
 	}
 
-	@Override
-	public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
-		if (oldState.isOf(state.getBlock())) {
-			return;
+	@Inject(method = "onBlockAdded", at = @At("HEAD"), cancellable = true)
+	public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify, CallbackInfo ci) {
+		if (BRUH.CONFIG.generalConfig.wetLavaSponge) {
+			if (oldState.isOf(state.getBlock())) {
+				return;
+			}
+			this.update(world, pos);
+			ci.cancel();
 		}
-		this.update(world, pos);
 	}
 
 	@Override
 	public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
-		this.update(world, pos);
+		if (BRUH.CONFIG.generalConfig.wetLavaSponge) {
+			this.update(world, pos);
+		}
 		super.neighborUpdate(state, world, pos, sourceBlock, sourcePos, notify);
 	}
 
